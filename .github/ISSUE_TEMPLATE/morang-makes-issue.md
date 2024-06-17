@@ -1,7 +1,7 @@
 ---
-name: "[Feat/Fix/View] Title"
+name: morang makes issue
 about: Issue Templete
-title: ''
+title: "[Feat/Fix/View] Title"
 labels: Feat, Fix, View
 assignees: norang00, poetic-form
 
