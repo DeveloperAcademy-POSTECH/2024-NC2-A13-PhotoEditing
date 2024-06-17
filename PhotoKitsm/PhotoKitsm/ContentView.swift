@@ -14,6 +14,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("PhotoKitsm-is-here")
+            Text("Branch added!")
         }
         .padding()
     }
