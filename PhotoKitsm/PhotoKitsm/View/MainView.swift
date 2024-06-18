@@ -15,7 +15,7 @@ struct MainView: View {
                     // MARK: [issue] Bold 폰트를 사용했는데 화면에 적용이 안됨
                     Text("PhotoKitsm")
                         .font(.custom("Sintony-Bold", size: 36))
-                        
+                    
                     Spacer()
                     NavigationLink(destination: CreateView(), label: {
                         Image(systemName: "plus")
@@ -48,7 +48,7 @@ struct MainView: View {
                                 }
                                 .frame(width: 120)
                             }
-
+                            
                         }
                     }
                     Spacer()
@@ -75,10 +75,10 @@ struct MainView: View {
                                 }
                                 .frame(width: 120)
                             }
-
+                            
                         }
                     }
-
+                    
                 }
                 
             }

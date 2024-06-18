@@ -22,9 +22,6 @@ struct PhotoFrameView: View {
                         .foregroundColor(.white)
                     Image(systemName: "photo.badge.plus")
                         .font(.system(size: 33))
-                    
-                    //MARK: flow 확인용 임시 버튼
-                    NavigationLink
                 }
                 .onTapGesture {
                     isAddingPhoto = true
@@ -36,6 +33,14 @@ struct PhotoFrameView: View {
                     .font(.custom("Sintony-Bold", size: 21))
                     .foregroundColor(.white)
                 Spacer()
+                
+                //MARK: flow 확인용 임시 버튼
+                NavigationLink(destination: EditView(), label: {
+                    Image(systemName: "chevron.right")
+                        .font(.title)
+                        .foregroundColor(.blue)
+                })
+
             }
             .frame(width: 319, height: 91)
         }

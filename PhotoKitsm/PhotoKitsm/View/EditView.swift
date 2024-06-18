@@ -8,10 +8,53 @@
 import SwiftUI
 
 struct EditView: View {
+    @State var imageToEdit = "samplePhoto"
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack {
+                TabView {
+                    VStack {
+                        Image(imageToEdit)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .tabItem {
+                        Image(systemName: "crop")
+                        Text("Crop")
+                    }
+                    VStack {
+                        Image(imageToEdit)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .tabItem {
+                        Image(systemName: "camera.filters")
+                        Text("Filter")
+                    }
+                    VStack {
+                        Image(imageToEdit)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .tabItem {
+                        Image(systemName: "pencil.and.scribble")
+                        Text("Draw")
+                    }
+                }
+                
+            }
+            .navigationTitle("Edit")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: CreateView(), label: {
+                        Text("done")
+                    })
+                }
+            }
+        }
     }
-}
+
 
 #Preview {
     EditView()

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CreateView: View {
     var body: some View {
-        NavigationStack {
             VStack {
                 Rectangle()
                     .frame(width: 393, height: 50)
@@ -20,15 +19,15 @@ struct CreateView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: MainView(), label: {
+                    NavigationLink(destination: CompleteView(), label: {
                         Text("done")
                     })
                 }
             }
         }
-    }
+    
 }
 
 #Preview {
-    MainView()
+    CreateView()
 }
