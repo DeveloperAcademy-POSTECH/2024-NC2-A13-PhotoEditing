@@ -9,9 +9,33 @@ import SwiftUI
 
 struct EditView: View {
     @State var imageToEdit = "samplePhoto"
+    @Binding var showEditView: Bool
 
     var body: some View {
             VStack {
+                HStack {
+                    Button(action: {
+                        showEditView = false
+                    }) {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
+                    .padding()
+                    Spacer()
+                    Text("Edit")
+                        .fontWeight(.bold)
+                    Spacer()
+                    Button(action: {
+                        showEditView = false
+                    }) {
+                        Text("Done")
+                            .font(.system(size: 20))
+                    }
+                    .padding()
+                }
+                Divider()
+                
                 TabView {
                     VStack {
                         Image(imageToEdit)
@@ -41,21 +65,11 @@ struct EditView: View {
                         Text("Draw")
                     }
                 }
-                
-            }
-            .navigationTitle("Edit")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: CreateView(), label: {
-                        Text("done")
-                    })
-                }
             }
         }
     }
 
 
 #Preview {
-    EditView()
+    MainView()
 }

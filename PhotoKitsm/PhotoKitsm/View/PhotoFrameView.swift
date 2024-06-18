@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PhotoFrameView: View {
-    @State var isAddingPhoto: Bool = false
+    @State var showPhotoPicker: Bool = false
+    @Binding var showEditView: Bool
     
     var body: some View {
         VStack {
@@ -24,7 +25,7 @@ struct PhotoFrameView: View {
                         .font(.system(size: 33))
                 }
                 .onTapGesture {
-                    isAddingPhoto = true
+                    showPhotoPicker = true
                 }
             }
 
@@ -33,25 +34,20 @@ struct PhotoFrameView: View {
                     .font(.custom("Sintony-Bold", size: 21))
                     .foregroundColor(.white)
                 Spacer()
-                
-                //MARK: flow 확인용 임시 버튼
-                NavigationLink(destination: EditView(), label: {
-                    Image(systemName: "chevron.right")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                })
-
             }
             .frame(width: 319, height: 91)
         }
         .background(Color.black)
         .ignoresSafeArea(edges: [.bottom])
-        .sheet(isPresented: $isAddingPhoto) {
+        .sheet(isPresented: $showPhotoPicker) {
             PhotoPicker()
+                .onDisappear {
+                    showEditView.toggle()
+                }
         }
     }
 }
 
 #Preview {
-    PhotoFrameView()
+    MainView()
 }

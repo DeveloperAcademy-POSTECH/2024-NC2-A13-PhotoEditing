@@ -9,37 +9,53 @@ import SwiftUI
 
 struct CompleteView: View {
     @State var photoName: String = ""
+    @Binding var showCompleteView: Bool
     
     var body: some View {
         VStack {
+            HStack {
+                Button(action: {
+                    showCompleteView = false
+                }) {
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                }
+                .padding()
+                Spacer()
+                Text("Complete")
+                    .fontWeight(.bold)
+                Spacer()
+                Button(action: {
+                    showCompleteView = false
+                }) {
+                    Text("save")
+                        .font(.system(size: 20))
+                }
+                .padding()
+            }
+            Divider()
+            
+            Text("Your Photo is ready!")
+
             Image("sampleFrameImage")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
-
-            //MARK: 키보드 고정하는것이 가능한지 알아봐야 함
+            
             TextField(
-                    "Insert Title",
-                    text: $photoName
-                )
-                .frame(width: 200)
-                .onSubmit {
-                    
-                }
-        }
-        .navigationTitle("Complete")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(destination: MainView(), label: {
-                    Text("save")
-                        .fontWeight(.bold)
-                })
+                "Insert Title",
+                text: $photoName
+            )
+            .frame(width: 200)
+            .onSubmit {
+                
             }
+            Spacer()
         }
     }
 }
 
 #Preview {
-    CompleteView()
+    MainView()
 }
