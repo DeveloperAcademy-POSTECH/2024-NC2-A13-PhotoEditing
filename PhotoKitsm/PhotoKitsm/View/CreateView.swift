@@ -9,10 +9,26 @@ import SwiftUI
 
 struct CreateView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Rectangle()
+                    .frame(width: 393, height: 50)
+                    .foregroundColor(.white)
+                PhotoFrameView()
+            }
+            .navigationTitle("Create")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: MainView(), label: {
+                        Text("done")
+                    })
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    CreateView()
+    MainView()
 }

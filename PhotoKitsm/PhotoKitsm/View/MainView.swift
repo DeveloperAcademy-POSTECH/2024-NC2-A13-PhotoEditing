@@ -12,15 +12,73 @@ struct MainView: View {
         NavigationStack {
             VStack {
                 HStack {
+                    // MARK: [issue] Bold 폰트를 사용했는데 화면에 적용이 안됨
                     Text("PhotoKitsm")
-                        .font(.custom("Sintony-Bold.ttf", size: 36))
-                        .fontWeight(.bold)
+                        .font(.custom("Sintony-Bold", size: 36))
+                        
                     Spacer()
-                    NavigationLink(destination: CreateView(),
-                                   label: {
+                    NavigationLink(destination: CreateView(), label: {
                         Image(systemName: "plus")
                             .font(.title)
                     })
+                }
+                .padding(.bottom, 0)
+                // MARK: [issue] Divider 의 공백을 좌우 다르게 주고 싶은데 방법 고민 중
+                Divider()
+                VStack {
+                    HStack {
+                        Text("Collection")
+                            .font(.title)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal, showsIndicators: true) {
+                        HStack(spacing: 12) {
+                            //더미데이터 이용한 스크롤뷰 구현
+                            ForEach(0..<10) { index in
+                                VStack(alignment: .leading) {
+                                    Image("sampleFrameImage")
+                                        .resizable()
+                                        .scaledToFit()
+                                    Text("인사이드아웃2 관람🍿")
+                                        .font(.system(size: 13))
+                                        .lineLimit(1)
+                                    Text("2024.06.14")
+                                        .font(.caption)
+                                        .foregroundStyle(Color.gray)
+                                }
+                                .frame(width: 120)
+                            }
+
+                        }
+                    }
+                    Spacer()
+                    Divider()
+                    HStack {
+                        Text("Favorite")
+                            .font(.title)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal, showsIndicators: true) {
+                        HStack(spacing: 12) {
+                            //더미데이터 이용한 스크롤뷰 구현
+                            ForEach(0..<10) { index in
+                                VStack(alignment: .leading) {
+                                    Image("sampleFrameImage")
+                                        .resizable()
+                                        .scaledToFit()
+                                    Text("인사이드아웃2 관람🍿")
+                                        .font(.system(size: 13))
+                                        .lineLimit(1)
+                                    Text("2024.06.14")
+                                        .font(.caption)
+                                        .foregroundStyle(Color.gray)
+                                }
+                                .frame(width: 120)
+                            }
+
+                        }
+                    }
+
                 }
                 
             }
