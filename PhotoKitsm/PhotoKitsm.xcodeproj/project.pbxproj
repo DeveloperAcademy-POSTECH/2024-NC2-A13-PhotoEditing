@@ -59,6 +59,8 @@
 				72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */,
 			);
 			path = Model;
+            sourceTree = "<group>";
+        };
 		EE75B0052C2158DA0002B72C /* Font */ = {
 			isa = PBXGroup;
 			children = (
