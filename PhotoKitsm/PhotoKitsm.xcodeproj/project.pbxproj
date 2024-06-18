@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3E27F2C215C77004300E4 /* CollectionModel.swift */; };
+		72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */; };
 		EE75B0032C2158D30002B72C /* Sintony-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE75B0012C2158D30002B72C /* Sintony-Bold.ttf */; };
 		EE75B0042C2158D30002B72C /* Sintony-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */; };
 		EE75B00D2C215C1F0002B72C /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75B00C2C215C1F0002B72C /* CreateView.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72C3E27F2C215C77004300E4 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
+		72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingModel.swift; sourceTree = "<group>"; };
 		EE75B0012C2158D30002B72C /* Sintony-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Bold.ttf"; sourceTree = "<group>"; };
 		EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Regular.ttf"; sourceTree = "<group>"; };
 		EE75B00C2C215C1F0002B72C /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
@@ -48,6 +52,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72C3E2832C216CE1004300E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				72C3E27F2C215C77004300E4 /* CollectionModel.swift */,
+				72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */,
+			);
+			path = Model;
 		EE75B0052C2158DA0002B72C /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */,
+				EEB6D6FD2C1FD31400553392 /* ContentView.swift */,
+				72C3E2832C216CE1004300E4 /* Model */,
 				EE75B00B2C215BF90002B72C /* View */,
 				EECD20502C216E9500F8B735 /* Tool */,
 				EEB6D6FF2C1FD31500553392 /* Assets.xcassets */,
@@ -187,6 +200,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB6D6FE2C1FD31400553392 /* ContentView.swift in Sources */,
+				72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */,
+				EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */,
+				72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */,
 				EEB6D6FE2C1FD31400553392 /* MainView.swift in Sources */,
 				EECD20562C21778200F8B735 /* CompleteView.swift in Sources */,
 				EE75B00D2C215C1F0002B72C /* CreateView.swift in Sources */,
