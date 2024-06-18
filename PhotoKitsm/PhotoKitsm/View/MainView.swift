@@ -35,18 +35,20 @@ struct MainView: View {
                         HStack(spacing: 12) {
                             //더미데이터 이용한 스크롤뷰 구현
                             ForEach(0..<10) { index in
-                                VStack(alignment: .leading) {
-                                    Image("sampleFrameImage")
-                                        .resizable()
-                                        .scaledToFit()
-                                    Text("인사이드아웃2 관람🍿")
-                                        .font(.system(size: 13))
-                                        .lineLimit(1)
-                                    Text("2024.06.14")
-                                        .font(.caption)
-                                        .foregroundStyle(Color.gray)
+                                NavigationLink(destination: PhotoView()) {
+                                    VStack(alignment: .leading) {
+                                        Image("sampleFrameImage")
+                                            .resizable()
+                                            .scaledToFit()
+                                        Text("인사이드아웃2 관람🍿")
+                                            .font(.system(size: 13))
+                                            .lineLimit(1)
+                                        Text("2024.06.14")
+                                            .font(.caption)
+                                            .foregroundStyle(Color.gray)
+                                    }
+                                    .frame(width: 120)
                                 }
-                                .frame(width: 120)
                             }
                             
                         }
