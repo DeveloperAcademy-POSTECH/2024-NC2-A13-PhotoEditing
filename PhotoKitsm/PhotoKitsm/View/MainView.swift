@@ -37,39 +37,26 @@ struct MainView: View {
                         }
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
-                                // 더미데이터 이용한 스크롤뷰 구현
-                                ForEach(0..<10) { index in
-                                    NavigationLink(destination: PhotoView()) {
+                                ForEach($model.collection) { $item in
+                                    NavigationLink(destination: PhotoView(photoToShow: $item)) {
                                         VStack(alignment: .leading) {
-                                            Image("sampleFrameImage")
-                                                .resizable()
-                                                .scaledToFit()
-                                            Text("인사이드아웃2 관람🍿")
-                                                .font(.system(size: 13))
-                                                .lineLimit(1)
-                                            Text("2024.06.14")
-                                                .font(.caption)
-                                                .foregroundStyle(Color.gray)
+                                            if let image = UIImage(data: item.image) {
+                                                Image(uiImage: image)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                            } else {
+                                                Text("no image")
+                                            }
+                                                Text("\(item.title)")
+                                                    .font(.system(size: 13))
+                                                    .lineLimit(1)
+                                                Text("\(item.date)")
+                                                    .font(.caption)
+                                                    .foregroundStyle(Color.gray)
                                         }
                                         .frame(width: 120)
                                     }
                                 }
-//                                if !model.collection.isEmpty {
-//                                VStack(alignment: .leading) {
-//                                    Image(uiImage: UIImage(data: model.collection[0].image)!)
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                    Text(model.collection[0].title)
-//                                        .font(.system(size: 13))
-//                                        .lineLimit(1)
-//                                    Text(model.collection[0].date)
-//                                        .font(.caption)
-//                                        .foregroundStyle(Color.gray)
-//                                }
-//                                    
-//                                } else {
-//                                    Text("empty")
-//                                }
                             }
                         }
                         Divider()
@@ -81,22 +68,26 @@ struct MainView: View {
                         }
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
-                                // 더미데이터 이용한 스크롤뷰 구현
-                                ForEach(0..<10) { index in
-                                    VStack(alignment: .leading) {
-                                        Image("sampleFrameImage")
-                                            .resizable()
-                                            .scaledToFit()
-                                        Text("인사이드아웃2 관람🍿")
-                                            .font(.system(size: 13))
-                                            .lineLimit(1)
-                                        Text("2024.06.14")
-                                            .font(.caption)
-                                            .foregroundStyle(Color.gray)
+                                ForEach($model.collection.filter { $0.wrappedValue.favorite }) { $item in
+                                    NavigationLink(destination: PhotoView(photoToShow: $item)) {
+                                        VStack(alignment: .leading) {
+                                            if let image = UIImage(data: item.image) {
+                                                Image(uiImage: image)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                            } else {
+                                                Text("no image")
+                                            }
+                                                Text("\(item.title)")
+                                                    .font(.system(size: 13))
+                                                    .lineLimit(1)
+                                                Text("\(item.date)")
+                                                    .font(.caption)
+                                                    .foregroundStyle(Color.gray)
+                                        }
+                                        .frame(width: 120)
                                     }
-                                    .frame(width: 120)
                                 }
-                                
                             }
                         }
                         
@@ -106,6 +97,7 @@ struct MainView: View {
             }
             .onAppear {
                 model.loadData()
+                print(model.collection)
             }
         }
     }
@@ -113,4 +105,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(CollectionModel())
 }

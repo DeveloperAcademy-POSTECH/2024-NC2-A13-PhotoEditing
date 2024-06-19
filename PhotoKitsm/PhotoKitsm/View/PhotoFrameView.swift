@@ -24,27 +24,22 @@ struct PhotoFrameView: View {
                 .frame(width: 393, height: 750)
                 .foregroundColor(.black)
             VStack {
-                Rectangle()
-                    .frame(height: 20)
-                
                 ForEach($editings) { $edit in
                     PhotosPicker(selection: $edit.selectedPhoto) {
                         if $edit.wrappedValue.editedImage != nil {
                             if let image = $edit.wrappedValue.editedImage {
                                 Image(uiImage: image)
                                     .resizable()
-                                    .scaledToFit()
                                     .frame(width: 319, height: 204)
+                                    .scaledToFill()
                             }
                         } else {
-                            
                             ZStack {
                                 Rectangle()
                                     .frame(width: 319, height: 204)
                                     .foregroundColor(.white)
                                 Image(systemName: "photo.badge.plus")
                                     .font(.system(size: 33))
-                                
                             }
                         }
                     }
@@ -64,14 +59,6 @@ struct PhotoFrameView: View {
                         EditView(showEditView: $edit.showEditView, editingPhoto: $edit)
                     })
                 }
-    //            HStack {
-    //                Text(photoDate)
-    //                    .font(.custom("Sintony-Bold", size: 15))
-    //                    .foregroundColor(.white)
-    //                Spacer()
-    //            }
-    //            .frame(width: 319)
-                
                 HStack {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(photoDate)
@@ -83,10 +70,10 @@ struct PhotoFrameView: View {
                         .foregroundColor(.white)
                     }
                     Spacer()
-                    Image("AppIcon")
+                    Image("QRcode")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 10, height: 10)
+                        .frame(width: 40, height: 40)
                 }
                 .frame(width: 319, height: 65)
             }

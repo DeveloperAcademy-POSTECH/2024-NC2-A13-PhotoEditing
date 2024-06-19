@@ -21,7 +21,7 @@ struct CompleteView: View {
     
     var body: some View {
         VStack {
-            // navigation bar로 바꿀 수 있음
+            //MARK: navigation bar로 바꿀 수 있음 (시간나면 합시다)
             HStack {
                 Button(action: {
                     showCompleteView = false
@@ -38,12 +38,17 @@ struct CompleteView: View {
                 Button(action: {
                     if let completedImage {
                         model.collection.insert(Completed(image: completedImage, title: photoTitle, date: photoDate), at: 0)
+                        model.saveData()
+                        print("model insert executed")
+                        print(model.collection)
+
                     }
                     showCompleteView = false
                 }) {
                     Text("save")
                         .font(.system(size: 20))
                 }
+                .disabled(photoTitle.isEmpty)
                 .padding()
             }
             Divider()
