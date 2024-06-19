@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct CompleteView: View {
-    @State var photoName: String = ""
+    @EnvironmentObject var model : CollectionModel
+    @State var photoTitle: String = ""
     @Binding var showCompleteView: Bool
+    @Binding var completedImage: UIImage?
+    
+    var photoDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: Date())
+    }
     
     var body: some View {
         VStack {
+            // navigation bar로 바꿀 수 있음
             HStack {
                 Button(action: {
                     showCompleteView = false
@@ -27,6 +36,9 @@ struct CompleteView: View {
                     .fontWeight(.bold)
                 Spacer()
                 Button(action: {
+                    if let completedImage {
+                        model.collection.insert(Completed(image: completedImage, title: photoTitle, date: photoDate), at: 0)
+                    }
                     showCompleteView = false
                 }) {
                     Text("save")
@@ -38,19 +50,16 @@ struct CompleteView: View {
             
             Text("Your Photo is ready!")
 
-            Image("sampleFrameImage")
+            Image(uiImage: completedImage!)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
             
             TextField(
                 "Insert Title",
-                text: $photoName
+                text: $photoTitle
             )
             .frame(width: 200)
-            .onSubmit {
-                
-            }
             Spacer()
         }
     }

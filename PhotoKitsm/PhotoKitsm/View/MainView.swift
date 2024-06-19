@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var model: CollectionModel
+    
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    // MARK: [issue] Bold 폰트를 사용했는데 화면에 적용이 안됨
                     Text("PhotoKitsm")
                         .font(.custom("Sintony-Bold", size: 36))
                     
@@ -24,12 +25,11 @@ struct MainView: View {
                 }
                 .padding()
                 
-                // MARK: [issue] Divider 의 공백을 좌우 다르게 주고 싶은데 방법 고민 중
                 Divider()
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        //최신순으로 정렬
+                        // 최신순으로 정렬
                         HStack {
                             Text("Collection")
                                 .font(.title)
@@ -37,7 +37,7 @@ struct MainView: View {
                         }
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
-                                //더미데이터 이용한 스크롤뷰 구현
+                                // 더미데이터 이용한 스크롤뷰 구현
                                 ForEach(0..<10) { index in
                                     NavigationLink(destination: PhotoView()) {
                                         VStack(alignment: .leading) {
@@ -54,11 +54,26 @@ struct MainView: View {
                                         .frame(width: 120)
                                     }
                                 }
-                                
+//                                if !model.collection.isEmpty {
+//                                VStack(alignment: .leading) {
+//                                    Image(uiImage: UIImage(data: model.collection[0].image)!)
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                    Text(model.collection[0].title)
+//                                        .font(.system(size: 13))
+//                                        .lineLimit(1)
+//                                    Text(model.collection[0].date)
+//                                        .font(.caption)
+//                                        .foregroundStyle(Color.gray)
+//                                }
+//                                    
+//                                } else {
+//                                    Text("empty")
+//                                }
                             }
                         }
                         Divider()
-                        //좋아요&최신순으로 정렬
+                        // 좋아요&최신순으로 정렬
                         HStack {
                             Text("Favorite")
                                 .font(.title)
@@ -66,7 +81,7 @@ struct MainView: View {
                         }
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
-                                //더미데이터 이용한 스크롤뷰 구현
+                                // 더미데이터 이용한 스크롤뷰 구현
                                 ForEach(0..<10) { index in
                                     VStack(alignment: .leading) {
                                         Image("sampleFrameImage")
@@ -88,6 +103,9 @@ struct MainView: View {
                     }
                     .padding()
                 }
+            }
+            .onAppear {
+                model.loadData()
             }
         }
     }

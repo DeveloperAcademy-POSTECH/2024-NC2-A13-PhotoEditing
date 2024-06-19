@@ -10,61 +10,86 @@ import PhotosUI
 
 struct PhotoFrameView: View {
     
-    @State var editings: [PhotoEditing] = [
-        .init(),
-        .init(),
-        .init()
-    ]
+    @Binding var editings: [PhotoEditing]
+    
+    var photoDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: Date())
+    }
     
     var body: some View {
-        VStack {
+        ZStack {
             Rectangle()
-                .frame(height: 20)
-            
-            ForEach($editings) { $edit in
-                PhotosPicker(selection: $edit.selectedPhoto) {
-                    if $edit.wrappedValue.editedImage != nil {
-                        if let image = $edit.wrappedValue.editedImage {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 319, height: 204)
-                        }
-                    } else {
-                        
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 319, height: 204)
-                                .foregroundColor(.white)
-                            Image(systemName: "photo.badge.plus")
-                                .font(.system(size: 33))
+                .frame(width: 393, height: 750)
+                .foregroundColor(.black)
+            VStack {
+                Rectangle()
+                    .frame(height: 20)
+                
+                ForEach($editings) { $edit in
+                    PhotosPicker(selection: $edit.selectedPhoto) {
+                        if $edit.wrappedValue.editedImage != nil {
+                            if let image = $edit.wrappedValue.editedImage {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 319, height: 204)
+                            }
+                        } else {
                             
-                        }
-                    }
-                }
-                .onChange(of: $edit.wrappedValue.selectedPhoto) {
-                    if let newValue = $edit.wrappedValue.selectedPhoto {
-                        Task {
-                            if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                                await MainActor.run(body: {
-                                    $edit.wrappedValue.originalImage = image
-                                    $edit.wrappedValue.showEditView.toggle()
-                                })
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 319, height: 204)
+                                    .foregroundColor(.white)
+                                Image(systemName: "photo.badge.plus")
+                                    .font(.system(size: 33))
+                                
                             }
                         }
                     }
+                    .onChange(of: $edit.wrappedValue.selectedPhoto) {
+                        if let newValue = $edit.wrappedValue.selectedPhoto {
+                            Task {
+                                if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                                    await MainActor.run(body: {
+                                        $edit.wrappedValue.originalImage = image
+                                        $edit.wrappedValue.showEditView.toggle()
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    .fullScreenCover(isPresented: $edit.showEditView, content: {
+                        EditView(showEditView: $edit.showEditView, editingPhoto: $edit)
+                    })
                 }
-                .fullScreenCover(isPresented: $edit.showEditView, content: {
-                    EditView(showEditView: $edit.showEditView, editingPhoto: $edit)
-                })
+    //            HStack {
+    //                Text(photoDate)
+    //                    .font(.custom("Sintony-Bold", size: 15))
+    //                    .foregroundColor(.white)
+    //                Spacer()
+    //            }
+    //            .frame(width: 319)
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(photoDate)
+                            .font(.custom("Sintony", size: 15))
+                            .foregroundColor(.white)
+                        Text("PhotoKitsm")
+                            .padding(.bottom, 10)
+                            .font(.custom("Sintony-Bold", size: 21))
+                        .foregroundColor(.white)
+                    }
+                    Spacer()
+                    Image("AppIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 10, height: 10)
+                }
+                .frame(width: 319, height: 65)
             }
-            HStack {
-                Text("PhotoKitsm")
-                    .font(.custom("Sintony-Bold", size: 21))
-                    .foregroundColor(.white)
-                Spacer()
-            }
-            .frame(width: 319, height: 91)
         }
         .background(Color.black)
         .ignoresSafeArea(edges: [.bottom])
@@ -73,4 +98,5 @@ struct PhotoFrameView: View {
 
 #Preview {
     MainView()
+        .environmentObject(CollectionModel())
 }
