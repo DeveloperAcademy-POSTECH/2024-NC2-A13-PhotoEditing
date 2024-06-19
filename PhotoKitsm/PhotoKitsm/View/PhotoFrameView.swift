@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct PhotoFrameView: View {
+    @EnvironmentObject var photoEditingModel: PhotoEditingModel
+    
     @State var showPhotoPicker: Bool = false
     @Binding var showEditView: Bool
     
@@ -27,6 +30,7 @@ struct PhotoFrameView: View {
                 .onTapGesture {
                     showPhotoPicker = true
                 }
+                .photosPicker(isPresented: $showPhotoPicker, selection: $photoEditingModel.editingPhotos[index].selectedPhoto)
             }
 
             HStack {
@@ -39,15 +43,10 @@ struct PhotoFrameView: View {
         }
         .background(Color.black)
         .ignoresSafeArea(edges: [.bottom])
-        .sheet(isPresented: $showPhotoPicker) {
-            PhotoPicker()
-                .onDisappear {
-                    showEditView.toggle()
-                }
-        }
     }
 }
 
 #Preview {
     MainView()
+        .environmentObject(PhotoEditingModel())
 }

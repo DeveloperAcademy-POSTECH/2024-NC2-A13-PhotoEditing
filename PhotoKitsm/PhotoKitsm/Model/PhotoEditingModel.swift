@@ -13,8 +13,10 @@ struct PhotoEditing {
     var selectedPhoto: PhotosPickerItem?
     var originalImage: UIImage?
     var editedImage: UIImage?
+    
+    
 }
 
-class PhotoEditingModel {
-    var editingPhotos: [PhotoEditing] = [PhotoEditing(), PhotoEditing(), PhotoEditing()]
+class PhotoEditingModel: ObservableObject {
+    @Published var editingPhotos: [PhotoEditing] = [PhotoEditing(), PhotoEditing(), PhotoEditing()]
 }
