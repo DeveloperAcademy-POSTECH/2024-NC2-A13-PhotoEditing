@@ -58,4 +58,5 @@ struct CompleteView: View {
 
 #Preview {
     MainView()
+        .environmentObject(PhotoEditingModel())
 }

@@ -9,12 +9,15 @@ import Foundation
 import PhotosUI
 import SwiftUI
 
-struct PhotoEditing {
+struct PhotoEditing: Identifiable {
+    var id = UUID()
     var selectedPhoto: PhotosPickerItem?
     var originalImage: UIImage?
     var editedImage: UIImage?
 }
 
-class PhotoEditingModel {
-    var editingPhotos: [PhotoEditing] = [PhotoEditing(), PhotoEditing(), PhotoEditing()]
+class PhotoEditingModel: ObservableObject {
+    @Published var editingPhotos0: PhotoEditing = PhotoEditing()
+    @Published var editingPhotos1: PhotoEditing = PhotoEditing()
+    @Published var editingPhotos2: PhotoEditing = PhotoEditing()
 }

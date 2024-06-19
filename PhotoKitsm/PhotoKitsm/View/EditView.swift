@@ -8,39 +8,21 @@
 import SwiftUI
 
 struct EditView: View {
+    @EnvironmentObject var photoEditingModel: PhotoEditingModel
+    
     @State var imageToEdit = "samplePhoto"
     @Binding var showEditView: Bool
 
     var body: some View {
+        NavigationStack {
             VStack {
-                HStack {
-                    Button(action: {
-                        showEditView = false
-                    }) {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
-                    .padding()
-                    Spacer()
-                    Text("Edit")
-                        .fontWeight(.bold)
-                    Spacer()
-                    Button(action: {
-                        showEditView = false
-                    }) {
-                        Text("Done")
-                            .font(.system(size: 20))
-                    }
-                    .padding()
-                }
-                Divider()
-                
                 TabView {
                     VStack {
-                        Image(imageToEdit)
-                            .resizable()
-                            .scaledToFit()
+                        if let image = photoEditingModel.editingPhotos0.originalImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                        }
                     }
                     .tabItem {
                         Image(systemName: "crop")
@@ -66,10 +48,37 @@ struct EditView: View {
                     }
                 }
             }
+            .navigationTitle("Edit")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        showEditView = false
+                    }) {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        if let image = photoEditingModel.editingPhotos0.originalImage {
+                            photoEditingModel.editingPhotos0.editedImage = image
+                        }
+                        showEditView = false
+                    }) {
+                        Text("Done")
+                            .font(.system(size: 20))
+                    }
+                }
+            }
         }
     }
+}
 
 
 #Preview {
     MainView()
+        .environmentObject(PhotoEditingModel())
 }
