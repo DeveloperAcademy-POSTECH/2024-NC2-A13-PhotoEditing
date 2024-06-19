@@ -14,10 +14,5 @@ struct PhotoEditing: Identifiable {
     var selectedPhoto: PhotosPickerItem?
     var originalImage: UIImage?
     var editedImage: UIImage?
-}
-
-class PhotoEditingModel: ObservableObject {
-    @Published var editingPhotos0: PhotoEditing = PhotoEditing()
-    @Published var editingPhotos1: PhotoEditing = PhotoEditing()
-    @Published var editingPhotos2: PhotoEditing = PhotoEditing()
+    var showEditView: Bool = false
 }

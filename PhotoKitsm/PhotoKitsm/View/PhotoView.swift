@@ -57,5 +57,4 @@ struct PhotoView: View {
 
 #Preview {
     PhotoView()
-        .environmentObject(PhotoEditingModel())
 }
