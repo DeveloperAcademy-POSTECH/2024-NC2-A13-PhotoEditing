@@ -16,7 +16,7 @@ struct Completed: Identifiable, Codable {
 }
 
 
-class CollectionModel {
+class CollectionModel: ObservableObject {
     @AppStorage("collection") var collection: [Completed] = []
 }
 

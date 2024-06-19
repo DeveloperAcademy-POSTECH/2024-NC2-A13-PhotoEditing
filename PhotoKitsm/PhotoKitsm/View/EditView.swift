@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct EditView: View {
-    @EnvironmentObject var photoEditingModel: PhotoEditingModel
     
-    @State var imageToEdit = "samplePhoto"
     @Binding var showEditView: Bool
+    @Binding var editingPhoto: PhotoEditing
 
     var body: some View {
         NavigationStack {
             VStack {
                 TabView {
                     VStack {
-                        if let image = photoEditingModel.editingPhotos0.originalImage {
+                        if let image = editingPhoto.originalImage {
                             Image(uiImage: image)
                                 .resizable()
                                 .scaledToFit()
@@ -28,24 +27,24 @@ struct EditView: View {
                         Image(systemName: "crop")
                         Text("Crop")
                     }
-                    VStack {
-                        Image(imageToEdit)
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .tabItem {
-                        Image(systemName: "camera.filters")
-                        Text("Filter")
-                    }
-                    VStack {
-                        Image(imageToEdit)
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .tabItem {
-                        Image(systemName: "pencil.and.scribble")
-                        Text("Draw")
-                    }
+//                    VStack {
+//                        Image(imageToEdit)
+//                            .resizable()
+//                            .scaledToFit()
+//                    }
+//                    .tabItem {
+//                        Image(systemName: "camera.filters")
+//                        Text("Filter")
+//                    }
+//                    VStack {
+//                        Image(imageToEdit)
+//                            .resizable()
+//                            .scaledToFit()
+//                    }
+//                    .tabItem {
+//                        Image(systemName: "pencil.and.scribble")
+//                        Text("Draw")
+//                    }
                 }
             }
             .navigationTitle("Edit")
@@ -63,8 +62,8 @@ struct EditView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        if let image = photoEditingModel.editingPhotos0.originalImage {
-                            photoEditingModel.editingPhotos0.editedImage = image
+                        if let image = editingPhoto.originalImage {
+                            editingPhoto.editedImage = image
                         }
                         showEditView = false
                     }) {
@@ -80,5 +79,4 @@ struct EditView: View {
 
 #Preview {
     MainView()
-        .environmentObject(PhotoEditingModel())
 }

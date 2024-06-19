@@ -12,7 +12,6 @@ struct PhotoKitsmApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(PhotoEditingModel())
         }
     }
 }
