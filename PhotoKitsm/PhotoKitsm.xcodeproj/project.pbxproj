@@ -73,8 +73,8 @@
 			children = (
 				72B557DC2C21CB7B00AB2281 /* MainView.swift */,
 				EE75B00C2C215C1F0002B72C /* CreateView.swift */,
-				EECD20532C21728E00F8B735 /* EditView.swift */,
 				EECD204D2C216D8900F8B735 /* PhotoFrameView.swift */,
+				EECD20532C21728E00F8B735 /* EditView.swift */,
 				EECD20552C21778200F8B735 /* CompleteView.swift */,
 				EECD20572C21796100F8B735 /* PhotoView.swift */,
 			);

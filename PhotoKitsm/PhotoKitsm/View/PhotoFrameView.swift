@@ -10,11 +10,7 @@ import PhotosUI
 
 struct PhotoFrameView: View {
     
-    @State var editings: [PhotoEditing] = [
-        .init(),
-        .init(),
-        .init()
-    ]
+    @Binding var editings: [PhotoEditing]
     
     var body: some View {
         VStack {
@@ -73,4 +69,5 @@ struct PhotoFrameView: View {
 
 #Preview {
     MainView()
+        .environmentObject(CollectionModel())
 }

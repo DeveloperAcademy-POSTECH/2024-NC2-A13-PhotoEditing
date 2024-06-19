@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct CompleteView: View {
+    @EnvironmentObject var model : CollectionModel
     @State var photoName: String = ""
     @Binding var showCompleteView: Bool
+    @Binding var completedImage: UIImage?
     
     var body: some View {
         VStack {
+            // navigation bar로 바꿀 수 있음
             HStack {
                 Button(action: {
                     showCompleteView = false
@@ -27,6 +30,9 @@ struct CompleteView: View {
                     .fontWeight(.bold)
                 Spacer()
                 Button(action: {
+                    if let completedImage {
+                        model.collection.insert(Completed(image: completedImage, title: "asdf", date: "date"), at: 0)
+                    }
                     showCompleteView = false
                 }) {
                     Text("save")
@@ -38,7 +44,7 @@ struct CompleteView: View {
             
             Text("Your Photo is ready!")
 
-            Image("sampleFrameImage")
+            Image(uiImage: completedImage!)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
