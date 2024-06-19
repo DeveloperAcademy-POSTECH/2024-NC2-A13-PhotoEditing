@@ -8,22 +8,32 @@
 import SwiftUI
 
 struct PhotoView: View {
+    @EnvironmentObject var model: CollectionModel
+    @Binding var photoToShow: Completed
     @State var isLiked: Bool = false
     
     var body: some View {
         VStack {
-            Image("sampleFrameImage")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 394)
+            Rectangle()
+                .frame(width: 393, height: 100)
+                .foregroundColor(.white)
+            if let image = UIImage(data:photoToShow.image) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 393)
+            }
         }
-        .navigationTitle("인사이드아웃2 관람🍿")
+        .background(.black)
+        .navigationTitle("\(photoToShow.title)")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     isLiked.toggle()
-                    // 즐겨찾기 로직 여기로
+                    photoToShow.favorite = isLiked
+                    print("여기\(photoToShow.favorite)")
+                    model.saveData()
                 } label: {
                     if isLiked {
                         Image(systemName: "heart.fill")
@@ -36,6 +46,7 @@ struct PhotoView: View {
                     }
                 }
             }
+            //MARK: 추가 구현 예정 기능 (공유)
 //            ToolbarItem(placement: .topBarTrailing) {
 //                Button {
 //                    // 공유 로직 여기로
@@ -51,10 +62,9 @@ struct PhotoView: View {
                 }
             }
         }
-        .ignoresSafeArea(edges: [.bottom])
+        .onAppear {
+            isLiked = photoToShow.favorite
+        }
+        .ignoresSafeArea(edges: [.top, .bottom])
     }
-}
-
-#Preview {
-    PhotoView()
 }

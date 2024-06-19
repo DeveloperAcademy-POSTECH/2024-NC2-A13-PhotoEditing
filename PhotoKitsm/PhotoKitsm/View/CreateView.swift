@@ -24,10 +24,11 @@ struct CreateView: View {
     var body: some View {
         VStack {
             Rectangle()
-                .frame(width: 393, height: 50)
+                .frame(width: 393, height: 90)
                 .foregroundColor(.white)
             PhotoFrameView(editings: $editings)
         }
+        .ignoresSafeArea()
         .navigationTitle("Create")
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showCompleteView) {
@@ -35,28 +36,24 @@ struct CreateView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                if editings[0].editedImage == nil || editings[1].editedImage == nil || editings[2].editedImage == nil {
-                    Text("Done")
-                        .foregroundStyle(.gray)
-                } else {
-                    Button {
-                        let renderer = ImageRenderer(content: PhotoFrameView(editings: $editings))
-                        if let image = renderer.uiImage {
-                            completedImage = image
-                        }
-                        model.saveData()
-                        showCompleteView.toggle()
-                    } label: {
-                        Text("Done")
+                
+                Button {
+                    let renderer = ImageRenderer(content: PhotoFrameView(editings: $editings))
+                    if let image = renderer.uiImage {
+                        completedImage = image
                     }
+                    model.saveData()
+                    showCompleteView.toggle()
+                } label: {
+                    Text("Done")
                 }
+                .disabled(editings[0].editedImage == nil || editings[1].editedImage == nil || editings[2].editedImage == nil)
             }
         }
         .onChange(of: model.collection.count) {
             dismiss()
         }
     }
-    
 }
 
 #Preview {

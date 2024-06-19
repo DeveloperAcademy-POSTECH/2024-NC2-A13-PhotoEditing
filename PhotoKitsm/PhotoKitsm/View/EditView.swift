@@ -27,6 +27,7 @@ struct EditView: View {
                         Image(systemName: "crop")
                         Text("Crop")
                     }
+                    //MARK: 추가 구현 예정 기능 (filter, pencil)
 //                    VStack {
 //                        Image(imageToEdit)
 //                            .resizable()
@@ -63,6 +64,8 @@ struct EditView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         if let image = editingPhoto.originalImage {
+                            // MARK: 여기서 이미지 크기 지정 해야 할듯
+                            
                             editingPhoto.editedImage = image
                         }
                         showEditView = false
