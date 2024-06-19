@@ -17,7 +17,7 @@ struct PhotoFrameView: View {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: Date())
     }
-    #
+    
     var body: some View {
         ZStack {
             Rectangle()
