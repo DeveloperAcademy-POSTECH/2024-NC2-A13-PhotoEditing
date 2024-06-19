@@ -9,9 +9,15 @@ import SwiftUI
 
 struct CompleteView: View {
     @EnvironmentObject var model : CollectionModel
-    @State var photoName: String = ""
+    @State var photoTitle: String = ""
     @Binding var showCompleteView: Bool
     @Binding var completedImage: UIImage?
+    
+    var photoDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: Date())
+    }
     
     var body: some View {
         VStack {
@@ -31,7 +37,7 @@ struct CompleteView: View {
                 Spacer()
                 Button(action: {
                     if let completedImage {
-                        model.collection.insert(Completed(image: completedImage, title: "asdf", date: "date"), at: 0)
+                        model.collection.insert(Completed(image: completedImage, title: photoTitle, date: photoDate), at: 0)
                     }
                     showCompleteView = false
                 }) {
@@ -51,12 +57,9 @@ struct CompleteView: View {
             
             TextField(
                 "Insert Title",
-                text: $photoName
+                text: $photoTitle
             )
             .frame(width: 200)
-            .onSubmit {
-                
-            }
             Spacer()
         }
     }

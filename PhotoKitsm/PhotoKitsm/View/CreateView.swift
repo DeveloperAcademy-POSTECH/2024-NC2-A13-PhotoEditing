@@ -52,6 +52,9 @@ struct CreateView: View {
                 }
             }
         }
+        .onChange(of: model.collection.count) {
+            dismiss()
+        }
     }
     
 }
