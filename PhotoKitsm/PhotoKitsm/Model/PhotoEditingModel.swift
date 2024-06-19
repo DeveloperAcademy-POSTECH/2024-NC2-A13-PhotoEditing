@@ -9,7 +9,8 @@ import Foundation
 import PhotosUI
 import SwiftUI
 
-struct PhotoEditing {
+struct PhotoEditing: Identifiable {
+    var id = UUID()
     var selectedPhoto: PhotosPickerItem?
     var originalImage: UIImage?
     var editedImage: UIImage?

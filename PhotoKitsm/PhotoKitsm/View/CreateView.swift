@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CreateView: View {
     @Environment(\.dismiss) var dismiss
-    
+    @EnvironmentObject var photoEditingModel: PhotoEditingModel
+
     @State var showEditView: Bool = false
     @State var showCompleteView: Bool = false
     
@@ -25,10 +26,15 @@ struct CreateView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 // MARK: 여기서 done 누르면 프레임사진 하단에 날짜랑 QR 코드 추가해주어야 함
-                Button {
-                    showCompleteView.toggle()
-                } label: {
+                if photoEditingModel.editingPhotos0.editedImage == nil || photoEditingModel.editingPhotos1.editedImage == nil || photoEditingModel.editingPhotos2.editedImage == nil {
                     Text("Done")
+                        .foregroundStyle(.gray)
+                } else {
+                    Button {
+                        showCompleteView.toggle()
+                    } label: {
+                        Text("Done")
+                    }
                 }
             }
         }
@@ -47,4 +53,5 @@ struct CreateView: View {
 
 #Preview {
     MainView()
+        .environmentObject(PhotoEditingModel())
 }

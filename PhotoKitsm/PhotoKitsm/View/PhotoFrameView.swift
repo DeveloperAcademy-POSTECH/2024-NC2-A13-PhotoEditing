@@ -10,10 +10,6 @@ import PhotosUI
 
 struct PhotoFrameView: View {
     @EnvironmentObject var photoEditingModel: PhotoEditingModel
-    
-    @State var selectedPhoto: PhotosPickerItem?
-    @State var croppedImage: UIImage?
-    @State var showPhotoPicker: Bool = false
     @Binding var showEditView: Bool
     
     var body: some View {
@@ -46,7 +42,8 @@ struct PhotoFrameView: View {
                     Task {
                         if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
                             await MainActor.run(body: {
-                                photoEditingModel.editingPhotos0.editedImage = image
+                                photoEditingModel.editingPhotos0.originalImage = image
+                                showEditView.toggle()
                             })
                         }
                     }
@@ -78,7 +75,8 @@ struct PhotoFrameView: View {
                     Task {
                         if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
                             await MainActor.run(body: {
-                                photoEditingModel.editingPhotos1.editedImage = image
+                                photoEditingModel.editingPhotos1.originalImage = image
+                                showEditView.toggle()
                             })
                         }
                     }
@@ -110,7 +108,8 @@ struct PhotoFrameView: View {
                     Task {
                         if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
                             await MainActor.run(body: {
-                                photoEditingModel.editingPhotos2.editedImage = image
+                                photoEditingModel.editingPhotos2.originalImage = image
+                                showEditView.toggle()
                             })
                         }
                     }
