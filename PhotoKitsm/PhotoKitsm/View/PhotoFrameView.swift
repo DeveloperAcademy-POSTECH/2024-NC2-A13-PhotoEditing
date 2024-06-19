@@ -11,6 +11,8 @@ import PhotosUI
 struct PhotoFrameView: View {
     @EnvironmentObject var photoEditingModel: PhotoEditingModel
     
+    @State var selectedPhoto: PhotosPickerItem?
+    @State var croppedImage: UIImage?
     @State var showPhotoPicker: Bool = false
     @Binding var showEditView: Bool
     
@@ -19,20 +21,103 @@ struct PhotoFrameView: View {
             Rectangle()
                 .frame(height: 20)
             
-            ForEach(0..<3) { index in
-                ZStack {
-                    Rectangle()
-                        .frame(width: 319, height: 204)
-                        .foregroundColor(.white)
-                    Image(systemName: "photo.badge.plus")
-                        .font(.system(size: 33))
+            ZStack {
+                PhotosPicker(selection: $photoEditingModel.editingPhotos0.selectedPhoto) {
+                    if let image = photoEditingModel.editingPhotos0.editedImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 319, height: 204)
+                        
+                    } else {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 319, height: 204)
+                                .foregroundColor(.white)
+                            Image(systemName: "photo.badge.plus")
+                                .font(.system(size: 33))
+                            
+                        }
+                    }
                 }
-                .onTapGesture {
-                    showPhotoPicker = true
-                }
-                .photosPicker(isPresented: $showPhotoPicker, selection: $photoEditingModel.editingPhotos[index].selectedPhoto)
             }
-
+            .onChange(of: photoEditingModel.editingPhotos0.selectedPhoto) { oldValue, newValue in
+                if let newValue {
+                    Task {
+                        if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                            await MainActor.run(body: {
+                                photoEditingModel.editingPhotos0.editedImage = image
+                            })
+                        }
+                    }
+                }
+            }
+            
+            ZStack {
+                PhotosPicker(selection: $photoEditingModel.editingPhotos1.selectedPhoto) {
+                    if let image = photoEditingModel.editingPhotos1.editedImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 319, height: 204)
+                        
+                    } else {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 319, height: 204)
+                                .foregroundColor(.white)
+                            Image(systemName: "photo.badge.plus")
+                                .font(.system(size: 33))
+                            
+                        }
+                    }
+                }
+            }
+            .onChange(of: photoEditingModel.editingPhotos1.selectedPhoto) { oldValue, newValue in
+                if let newValue {
+                    Task {
+                        if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                            await MainActor.run(body: {
+                                photoEditingModel.editingPhotos1.editedImage = image
+                            })
+                        }
+                    }
+                }
+            }
+            
+            ZStack {
+                PhotosPicker(selection: $photoEditingModel.editingPhotos2.selectedPhoto) {
+                    if let image = photoEditingModel.editingPhotos2.editedImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 319, height: 204)
+                        
+                    } else {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 319, height: 204)
+                                .foregroundColor(.white)
+                            Image(systemName: "photo.badge.plus")
+                                .font(.system(size: 33))
+                            
+                        }
+                    }
+                }
+            }
+            .onChange(of: photoEditingModel.editingPhotos2.selectedPhoto) { oldValue, newValue in
+                if let newValue {
+                    Task {
+                        if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                            await MainActor.run(body: {
+                                photoEditingModel.editingPhotos2.editedImage = image
+                            })
+                        }
+                    }
+                }
+            }
+            
+            
             HStack {
                 Text("PhotoKitsm")
                     .font(.custom("Sintony-Bold", size: 21))
