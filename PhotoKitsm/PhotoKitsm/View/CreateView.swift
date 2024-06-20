@@ -39,6 +39,7 @@ struct CreateView: View {
                 
                 Button {
                     let renderer = ImageRenderer(content: PhotoFrameView(editings: $editings))
+                    renderer.scale = 3
                     if let image = renderer.uiImage {
                         completedImage = image
                     }
