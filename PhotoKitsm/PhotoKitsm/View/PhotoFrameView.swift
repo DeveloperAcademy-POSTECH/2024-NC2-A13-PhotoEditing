@@ -30,8 +30,9 @@ struct PhotoFrameView: View {
                             if let image = $edit.wrappedValue.editedImage {
                                 Image(uiImage: image)
                                     .resizable()
-                                    .frame(width: 319, height: 204)
                                     .scaledToFill()
+                                    .frame(width: 319, height: 204)
+                                    .clipped()
                             }
                         } else {
                             ZStack {
@@ -56,7 +57,7 @@ struct PhotoFrameView: View {
                         }
                     }
                     .fullScreenCover(isPresented: $edit.showEditView, content: {
-                        EditView(showEditView: $edit.showEditView, editingPhoto: $edit)
+                        CropView(showEditView: $edit.showEditView, editingPhoto: $edit)
                     })
                 }
                 HStack {
