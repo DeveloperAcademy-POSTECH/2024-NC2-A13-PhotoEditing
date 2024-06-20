@@ -66,7 +66,7 @@ struct MainView: View {
                                                             item.id == $item.id }
                                                     model.saveData()
                                                 } label: {
-                                                     Text("Delete")
+                                                    Label("Delete", systemImage: "trash")
                                                 }
                                             })
                                         }
