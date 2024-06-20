@@ -17,12 +17,11 @@ struct Completed: Codable, Identifiable {
     
     init(id: UUID = UUID(), image: UIImage, title: String, date: String) {
         self.id = id
-        self.image = image.pngData() ?? Data()
+        self.image = image.heicData() ?? Data()
         self.title = title
         self.date = date
     }
 }
-
 
 class CollectionModel: ObservableObject {
     @Published var collection: [Completed] = [] 
