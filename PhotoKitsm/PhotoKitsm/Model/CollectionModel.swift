@@ -24,7 +24,7 @@ struct Completed: Codable, Identifiable {
 }
 
 class CollectionModel: ObservableObject {
-    @Published var collection: [Completed] = [Completed(image: UIImage(systemName: "pencil")!, title: "asdf", date: "asdf")] 
+    @Published var collection: [Completed] = [] 
     @Published var favoriteCollection: [Completed] = []
     
     func saveData() {

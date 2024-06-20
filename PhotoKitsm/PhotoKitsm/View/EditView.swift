@@ -16,13 +16,7 @@ struct EditView: View {
         NavigationStack {
             VStack {
                 TabView {
-                    VStack {
-                        if let image = editingPhoto.originalImage {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
+                    CropView(showEditView: $showEditView, editingPhoto: $editingPhoto)
                     .tabItem {
                         Image(systemName: "crop")
                         Text("Crop")
