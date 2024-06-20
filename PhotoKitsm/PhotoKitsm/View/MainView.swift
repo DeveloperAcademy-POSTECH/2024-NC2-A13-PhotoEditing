@@ -60,6 +60,15 @@ struct MainView: View {
                                                     .foregroundStyle(Color.gray)
                                             }
                                             .frame(width: 120)
+                                            .contextMenu(menuItems: {
+                                                Button(role: .destructive) {
+                                                        model.collection.removeAll { item in
+                                                            item.id == $item.id }
+                                                    model.saveData()
+                                                } label: {
+                                                     Text("Delete")
+                                                }
+                                            })
                                         }
                                     }
                                 }
