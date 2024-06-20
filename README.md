@@ -117,3 +117,13 @@ UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 ```
 
 🔻PHPhotoLibrary.authorizationStatus 를 이용하여 권한여부를 확인할 수 있습니다.
+
+[PHPhotoLibrary | Apple Developer Documentation] (https://developer.apple.com/documentation/photokit/phphotolibrary)
+
+```swift
+if PHPhotoLibrary.authorizationStatus(for: .addOnly) == .denied {
+                            isDenied.toggle()
+                        } else {
+                            isSaved.toggle()
+                        }
+```
