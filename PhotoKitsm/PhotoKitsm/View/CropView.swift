@@ -66,7 +66,6 @@ struct CropView: View {
     
     @ViewBuilder
     func ImageView(_ hideGrids: Bool = false) -> some View {
-        let cropSize = CGSize(width: 319, height: 204)
         GeometryReader {
             let size = $0.size
             if let image = editingPhoto.originalImage {
