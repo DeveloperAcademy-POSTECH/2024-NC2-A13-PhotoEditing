@@ -41,6 +41,7 @@ struct CropView: View {
                         ToolbarItem(placement: .topBarTrailing) {
                             Button(action: {
                                 let renderer = ImageRenderer(content: ImageView(true))
+                                renderer.scale = 3
                                 if let image = renderer.uiImage {
                                     editingPhoto.editedImage = image
                                 }
