@@ -4,7 +4,7 @@
 
 ## 💡 About Photo Editing
 
-PhotoKit (Photo Editing) 에 해당하는 주요 프레임워크에는 **Photos** 와 **Photos** 두 가지가 있습니다. 
+PhotoKit (Photo Editing) 에 해당하는 주요 프레임워크에는 **Photos** 와 **PhotosUI** 두 가지가 있습니다. 
 
 ### Photos Framework
 
