@@ -25,25 +25,7 @@ struct Completed: Codable, Identifiable {
 
 class CollectionModel: ObservableObject {
     @Published var collection: [Completed] = [] 
-//    {
-//        didSet {
-//            favoriteCollection = collection.filter { $0.favorite }
-//        }
-//    }
     @Published var favoriteCollection: [Completed] = []
-    
-//    @Published var collection: [Completed] = []
-//    @Published var favoriteCollection: [Completed] = collection.filter { $0.favorite == true }
-    
-//    func getFavoriteCollection() -> [Completed] {
-//        var result: [Completed] = []
-//        for photo in collection {
-//            if photo.favorite {
-//                result.insert(photo, at: 0)
-//            }
-//        }
-//        return result
-//    }
     
     func saveData() {
         let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("PhotoKitsm.json")
