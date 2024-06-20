@@ -21,7 +21,7 @@ PhotoKit (Photo Editing) 에 해당하는 주요 프레임워크에는 **Photos*
 ### 차이점
 
 - **Photos** 는 주로 사진 및 비디오를 관리하고 조작하는 기능에 중점을 둡니다.
-- **PhotosUI** 는 사진 및 비디오를 표시하고 편집할 수 있는 기본 제공 UI 요소를 제공합니다.
+- **PhotosUI** 는 사진 및 비디오를 표시하고 편집할 수 있는 기본 UI 요소를 제공합니다.
 
 [PhotoKit | Apple Developer Documentation](https://developer.apple.com/documentation/photokit)
 
