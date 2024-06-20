@@ -63,11 +63,12 @@ struct PhotoView: View {
                     if let image = UIImage(data:photoToShow.image) {
                         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                     }
-                    
-                    if PHPhotoLibrary.authorizationStatus(for: .addOnly) == .authorized {
-                        isSaved.toggle()
-                    } else {
-                        isDenied.toggle()
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        if PHPhotoLibrary.authorizationStatus(for: .addOnly) == .denied {
+                            isDenied.toggle()
+                        } else {
+                            isSaved.toggle()
+                        }
                     }
                 } label: {
                     Image(systemName: "square.and.arrow.down")

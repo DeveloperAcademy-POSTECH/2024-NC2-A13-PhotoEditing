@@ -17,14 +17,14 @@ struct Completed: Codable, Identifiable {
     
     init(id: UUID = UUID(), image: UIImage, title: String, date: String) {
         self.id = id
-        self.image = image.heicData() ?? Data()
+        self.image = image.pngData() ?? Data()
         self.title = title
         self.date = date
     }
 }
 
 class CollectionModel: ObservableObject {
-    @Published var collection: [Completed] = [] 
+    @Published var collection: [Completed] = [Completed(image: UIImage(systemName: "pencil")!, title: "asdf", date: "asdf")] 
     @Published var favoriteCollection: [Completed] = []
     
     func saveData() {
