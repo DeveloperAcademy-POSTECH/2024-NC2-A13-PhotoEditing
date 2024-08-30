@@ -9,11 +9,13 @@ import SwiftUI
 import Photos
 
 struct PhotoView: View {
-    @EnvironmentObject var model: CollectionModel
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var model: CollectionModel
     @Binding var photoToShow: Completed
-    @State var isLiked: Bool = false
-    @State var isSaved: Bool = false
-    @State var isDenied: Bool = false
+    @State private var isLiked: Bool = false
+    @State private var isSaved: Bool = false
+    @State private var isDeleted: Bool = false
+    @State private var isDenied: Bool = false
     
     var body: some View {
         VStack {
@@ -35,43 +37,44 @@ struct PhotoView: View {
                 Button {
                     isLiked.toggle()
                     photoToShow.favorite = isLiked
-                    print("여기\(photoToShow.favorite)")
                     model.saveData()
                 } label: {
-                    if isLiked {
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .scaledToFit()
-                    } else {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .scaledToFit()
-                    }
+                    Image(systemName: isLiked ? "heart.fill" : "heart")
+                        .font(.title3)
                 }
             }
-            //MARK: 추가 구현 예정 기능 (공유)
-            //            ToolbarItem(placement: .topBarTrailing) {
-            //                Button {
-            //                    // 공유 로직 여기로
-            //                } label: {
-            //                    Image(systemName: "square.and.arrow.up")
-            //                }
-            //            }
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    // 카메라 앨범에 저장 로직 여기로
-                    if let image = UIImage(data:photoToShow.image) {
-                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                Menu {
+                    Button {
+                        
+                    } label: {
+                        Label("Edit title", systemImage: "pencil")
                     }
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                        if PHPhotoLibrary.authorizationStatus(for: .addOnly) == .denied {
-                            isDenied.toggle()
-                        } else {
-                            isSaved.toggle()
+                    
+                    Button {
+                        if let image = UIImage(data:photoToShow.image) {
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         }
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                            if PHPhotoLibrary.authorizationStatus(for: .addOnly) == .denied {
+                                isDenied.toggle()
+                            } else {
+                                isSaved.toggle()
+                            }
+                        }
+                    } label: {
+                        Label("Save to album", systemImage: "square.and.arrow.down")
+                    }
+                    
+                    Button(role: .destructive) {
+                        isDeleted = true
+                    } label: {
+                        Label("Delete", systemImage: "trash")
                     }
                 } label: {
-                    Image(systemName: "square.and.arrow.down")
+                    Image(systemName: "ellipsis")
+                        .padding(.vertical, 10)
+                        .font(.title3)
                 }
             }
         }
@@ -97,6 +100,23 @@ struct PhotoView: View {
         }, message: {
             Text("please authrize in settings app")
         })
+        .alert("Delete this photo?", isPresented: $isDeleted, actions: {
+            Button(role: .destructive) {
+                model.collection.removeAll { item in
+                    item.id == photoToShow.id }
+                model.saveData()
+                dismiss()
+            } label: {
+                Text("Delete")
+            }
+        })
         .ignoresSafeArea(edges: [.top, .bottom])
+    }
+}
+
+#Preview {
+    NavigationStack {
+        PhotoView(photoToShow: .constant(.init(image: .init(), title: "Asdf", date: "asdf")))
+            .environmentObject(CollectionModel())
     }
 }

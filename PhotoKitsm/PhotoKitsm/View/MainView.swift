@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var model: CollectionModel
+    @State private var isDeleted: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -62,14 +63,21 @@ struct MainView: View {
                                             .frame(width: 120)
                                             .contextMenu(menuItems: {
                                                 Button(role: .destructive) {
-                                                        model.collection.removeAll { item in
-                                                            item.id == $item.id }
-                                                    model.saveData()
+                                                    isDeleted = true
                                                 } label: {
                                                     Label("Delete", systemImage: "trash")
                                                 }
                                             })
                                         }
+                                        .alert("Delete this photo?", isPresented: $isDeleted, actions: {
+                                            Button(role: .destructive) {
+                                                model.collection.removeAll { item in
+                                                    item.id == $item.id }
+                                                model.saveData()
+                                            } label: {
+                                                Text("Delete")
+                                            }
+                                        })
                                     }
                                 }
                             }
