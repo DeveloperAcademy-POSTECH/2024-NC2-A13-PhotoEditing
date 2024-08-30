@@ -68,16 +68,16 @@ struct MainView: View {
                                                     Label("Delete", systemImage: "trash")
                                                 }
                                             })
+                                            .alert("Delete this photo?", isPresented: $isDeleted, actions: {
+                                                Button(role: .destructive) {
+                                                    model.collection.removeAll { item in
+                                                        item.id == $item.id }
+                                                    model.saveData()
+                                                } label: {
+                                                    Text("Delete")
+                                                }
+                                            })
                                         }
-                                        .alert("Delete this photo?", isPresented: $isDeleted, actions: {
-                                            Button(role: .destructive) {
-                                                model.collection.removeAll { item in
-                                                    item.id == $item.id }
-                                                model.saveData()
-                                            } label: {
-                                                Text("Delete")
-                                            }
-                                        })
                                     }
                                 }
                             }
