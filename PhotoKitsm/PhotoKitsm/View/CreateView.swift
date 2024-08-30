@@ -38,7 +38,6 @@ struct CreateView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                
                 Button {
                     let renderer = ImageRenderer(content: PhotoFrameView(editings: $editings))
                     renderer.scale = 3
