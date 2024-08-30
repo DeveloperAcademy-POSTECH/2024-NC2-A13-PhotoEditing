@@ -21,60 +21,60 @@ struct CompleteView: View {
     }
     
     var body: some View {
-        VStack {
-            //MARK: navigation bar로 바꿀 수 있음 (시간나면 합시다)
-            HStack {
-                Button(action: {
-                    showCompleteView = false
-                }) {
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                }
-                .padding()
-                Spacer()
-                Text("Complete")
-                    .fontWeight(.bold)
-                Spacer()
-                Button(action: {
-                    if let completedImage {
-                        model.collection.insert(Completed(image: completedImage, title: photoTitle, date: photoDate), at: 0)
-                        model.saveData()
-                        print("model insert executed")
-                        print(model.collection)
-
-                    }
-                    showCompleteView = false
-                }) {
-                    Text("save")
-                        .font(.system(size: 20))
-                }
-                .disabled(photoTitle.isEmpty)
-                .padding()
-            }
+        VStack(spacing: 0) {
             Divider()
-            
             Text("Your Photo is ready!")
-
+                .padding(10)
+            
             Image(uiImage: completedImage!)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
             
             TextField(
-                "Insert Title",
+                "Title",
                 text: $photoTitle
             )
             .frame(width: 200)
             .focused($isFocused)
+            .padding(10)
+            
             Spacer()
         }
         .onAppear {
             isFocused = true
         }
+        .navigationTitle("Complete")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    showCompleteView = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.subheadline)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    if let completedImage {
+                        model.collection.insert(Completed(image: completedImage, title: photoTitle, date: photoDate), at: 0)
+                        model.saveData()
+                    }
+                    showCompleteView = false
+                } label: {
+                    Text("save")
+                        .font(.title3)
+                }
+                .disabled(photoTitle.isEmpty)
+            }
+        }
     }
 }
 
 #Preview {
-    MainView()
+    NavigationStack {
+        CompleteView(showCompleteView: .constant(true), completedImage: .constant(.init()))
+    }
 }

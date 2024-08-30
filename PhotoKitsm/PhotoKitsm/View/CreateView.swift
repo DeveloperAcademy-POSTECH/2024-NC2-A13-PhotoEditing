@@ -32,7 +32,9 @@ struct CreateView: View {
         .navigationTitle("Create")
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showCompleteView) {
-            CompleteView(showCompleteView: $showCompleteView, completedImage: $completedImage)
+            NavigationStack {
+                CompleteView(showCompleteView: $showCompleteView, completedImage: $completedImage)
+            }
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
