@@ -14,7 +14,7 @@ struct MainView: View {
         NavigationStack {
             VStack {
                 HStack {
-                    Text("PhotoKitsm")
+                    Text("PhotoSet")
                         .font(.custom("Sintony-Bold", size: 36))
                     Spacer()
                     NavigationLink(destination: CreateView(), label: {

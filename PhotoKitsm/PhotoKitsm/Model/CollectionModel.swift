@@ -28,14 +28,14 @@ class CollectionModel: ObservableObject {
     @Published var favoriteCollection: [Completed] = []
     
     func saveData() {
-        let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("PhotoKitsm.json")
+        let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("PhotoSet.json")
         if let data = try? JSONEncoder().encode(collection) {
             try? data.write(to: fileURL)
         }
     }
     
     func loadData() {
-        let fileURL = getDocumentsDirectory().appendingPathComponent("PhotoKitsm.json")
+        let fileURL = getDocumentsDirectory().appendingPathComponent("PhotoSet.json")
         if let data = try? Data(contentsOf: fileURL) {
             if let decoded = try? JSONDecoder().decode([Completed].self, from: data) {
                 self.collection = decoded

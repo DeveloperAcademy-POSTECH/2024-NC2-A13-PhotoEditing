@@ -65,7 +65,7 @@ struct PhotoFrameView: View {
                         Text(photoDate)
                             .font(.custom("Sintony", size: 15))
                             .foregroundColor(.white)
-                        Text("PhotoKitsm")
+                        Text("PhotoSet")
                             .padding(.bottom, 10)
                             .font(.custom("Sintony-Bold", size: 21))
                         .foregroundColor(.white)

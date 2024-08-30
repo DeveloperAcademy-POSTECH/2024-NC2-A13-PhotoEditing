@@ -14,7 +14,7 @@
 		EE75B0032C2158D30002B72C /* Sintony-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE75B0012C2158D30002B72C /* Sintony-Bold.ttf */; };
 		EE75B0042C2158D30002B72C /* Sintony-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */; };
 		EE75B00D2C215C1F0002B72C /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75B00C2C215C1F0002B72C /* CreateView.swift */; };
-		EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */; };
+		EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */; };
 		EEB6D7002C1FD31500553392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB6D6FF2C1FD31500553392 /* Assets.xcassets */; };
 		EEB6D7032C1FD31500553392 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB6D7022C1FD31500553392 /* Preview Assets.xcassets */; };
 		EECD204E2C216D8900F8B735 /* PhotoFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD204D2C216D8900F8B735 /* PhotoFrameView.swift */; };
@@ -32,7 +32,7 @@
 		EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Regular.ttf"; sourceTree = "<group>"; };
 		EE75B00C2C215C1F0002B72C /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoKitsm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKitsmApp.swift; sourceTree = "<group>"; };
+		EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSetApp.swift; sourceTree = "<group>"; };
 		EEB6D6FF2C1FD31500553392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEB6D7022C1FD31500553392 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EECD204D2C216D8900F8B735 /* PhotoFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFrameView.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		EEB6D6FA2C1FD31400553392 /* PhotoKitsm */ = {
 			isa = PBXGroup;
 			children = (
-				EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */,
+				EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */,
 				72C3E2832C216CE1004300E4 /* Model */,
 				EE75B00B2C215BF90002B72C /* View */,
 				EEB6D6FF2C1FD31500553392 /* Assets.xcassets */,
@@ -195,12 +195,12 @@
 			files = (
 				72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */,
 				72D28F8C2C2408FC00C21354 /* CropView.swift in Sources */,
-				EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */,
+				EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */,
 				72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */,
 				EECD20562C21778200F8B735 /* CompleteView.swift in Sources */,
 				EE75B00D2C215C1F0002B72C /* CreateView.swift in Sources */,
 				EECD20542C21728E00F8B735 /* EditView.swift in Sources */,
-				EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */,
+				EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */,
 				72B557DD2C21CB7B00AB2281 /* MainView.swift in Sources */,
 				EECD204E2C216D8900F8B735 /* PhotoFrameView.swift in Sources */,
 				EECD20582C21796100F8B735 /* PhotoView.swift in Sources */,
