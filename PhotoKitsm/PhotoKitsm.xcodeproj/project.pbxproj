@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721037A92C81A5BA007491AC /* TitleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721037A82C81A5BA007491AC /* TitleEditView.swift */; };
 		72B557DD2C21CB7B00AB2281 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B557DC2C21CB7B00AB2281 /* MainView.swift */; };
 		72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3E27F2C215C77004300E4 /* CollectionModel.swift */; };
 		72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		721037A82C81A5BA007491AC /* TitleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditView.swift; sourceTree = "<group>"; };
 		72B557DC2C21CB7B00AB2281 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		72C3E27F2C215C77004300E4 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingModel.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				EECD20532C21728E00F8B735 /* EditView.swift */,
 				72D28F8B2C2408FC00C21354 /* CropView.swift */,
 				EECD20552C21778200F8B735 /* CompleteView.swift */,
+				721037A82C81A5BA007491AC /* TitleEditView.swift */,
 				EECD20572C21796100F8B735 /* PhotoView.swift */,
 			);
 			path = View;
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */,
+				721037A92C81A5BA007491AC /* TitleEditView.swift in Sources */,
 				72D28F8C2C2408FC00C21354 /* CropView.swift in Sources */,
 				EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */,
 				72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */,

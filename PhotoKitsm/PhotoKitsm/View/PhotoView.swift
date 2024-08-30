@@ -16,6 +16,7 @@ struct PhotoView: View {
     @State private var isSaved: Bool = false
     @State private var isDeleted: Bool = false
     @State private var isDenied: Bool = false
+    @State private var showTitleEditView: Bool = false
     
     var body: some View {
         VStack {
@@ -46,7 +47,7 @@ struct PhotoView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
                     Button {
-                        
+                        showTitleEditView = true
                     } label: {
                         Label("Edit title", systemImage: "pencil")
                     }
@@ -81,6 +82,11 @@ struct PhotoView: View {
         .onAppear {
             isLiked = photoToShow.favorite
         }
+        .fullScreenCover(isPresented: $showTitleEditView, content: {
+            NavigationStack {
+                TitleEditView(showTitleEditView: $showTitleEditView, selectedPhoto: $photoToShow)
+            }
+        })
         .alert("Saved", isPresented: $isSaved, actions: {
             Button {
                 isSaved = false

@@ -71,10 +71,6 @@ struct PhotoFrameView: View {
                         .foregroundColor(.white)
                     }
                     Spacer()
-                    Image("QRcode")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
                 }
                 .frame(width: 319, height: 65)
             }

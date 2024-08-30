@@ -11,7 +11,7 @@ import SwiftUI
 struct Completed: Codable, Identifiable {
     var id = UUID()
     let image: Data
-    let title: String
+    var title: String
     let date: String
     var favorite: Bool = false
     

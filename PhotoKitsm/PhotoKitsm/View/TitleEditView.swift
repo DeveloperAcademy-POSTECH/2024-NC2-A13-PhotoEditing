@@ -1,39 +1,34 @@
 //
-//  CompleteView.swift
+//  TitleEditView.swift
 //  PhotoKitsm
 //
-//  Created by Kyuhee hong on 6/18/24.
+//  Created by Lee Sihyeong on 8/30/24.
 //
 
 import SwiftUI
 
-struct CompleteView: View {
+struct TitleEditView: View {
     @EnvironmentObject var model : CollectionModel
-    @State var photoTitle: String = ""
-    @Binding var showCompleteView: Bool
-    @Binding var completedImage: UIImage?
+    @State var placeHolder: String = ""
+    @State var renameTitle: String = ""
+    @Binding var showTitleEditView: Bool
+    @Binding var selectedPhoto: Completed
     @FocusState private var isFocused: Bool
-    
-    var photoDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        return formatter.string(from: Date())
-    }
     
     var body: some View {
         VStack(spacing: 0) {
             Divider()
-            Text("Your Photo is ready!")
+            Text("Rename your photo!")
                 .padding(10)
             
-            Image(uiImage: completedImage!)
+            Image(uiImage: UIImage(data: selectedPhoto.image)!)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
             
             TextField(
-                "Title",
-                text: $photoTitle
+                placeHolder,
+                text: $renameTitle
             )
             .frame(width: 200)
             .focused($isFocused)
@@ -43,14 +38,16 @@ struct CompleteView: View {
         }
         .onAppear {
             UITextField.appearance().clearButtonMode = .whileEditing
+            placeHolder = selectedPhoto.title
+            renameTitle = selectedPhoto.title
             isFocused = true
         }
-        .navigationTitle("Complete")
+        .navigationTitle("Edit title")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    showCompleteView = false
+                    showTitleEditView = false
                 } label: {
                     Image(systemName: "xmark")
                         .font(.subheadline)
@@ -59,16 +56,14 @@ struct CompleteView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    if let completedImage {
-                        model.collection.insert(Completed(image: completedImage, title: photoTitle, date: photoDate), at: 0)
-                        model.saveData()
-                    }
-                    showCompleteView = false
+                    selectedPhoto.title = renameTitle
+                    showTitleEditView = false
+                    model.saveData()
                 } label: {
                     Text("save")
                         .font(.title3)
                 }
-                .disabled(photoTitle.isEmpty)
+                .disabled(selectedPhoto.title.isEmpty)
             }
         }
     }
@@ -76,6 +71,6 @@ struct CompleteView: View {
 
 #Preview {
     NavigationStack {
-        CompleteView(showCompleteView: .constant(true), completedImage: .constant(.init()))
+        TitleEditView(showTitleEditView: .constant(true), selectedPhoto: .constant(.init(image: .init(), title: "", date: "")))
     }
 }
