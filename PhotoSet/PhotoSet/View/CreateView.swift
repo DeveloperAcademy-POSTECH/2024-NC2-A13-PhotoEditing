@@ -32,11 +32,12 @@ struct CreateView: View {
         .navigationTitle("Create")
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showCompleteView) {
-            CompleteView(showCompleteView: $showCompleteView, completedImage: $completedImage)
+            NavigationStack {
+                CompleteView(showCompleteView: $showCompleteView, completedImage: $completedImage)
+            }
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                
                 Button {
                     let renderer = ImageRenderer(content: PhotoFrameView(editings: $editings))
                     renderer.scale = 3
@@ -47,6 +48,7 @@ struct CreateView: View {
                     showCompleteView.toggle()
                 } label: {
                     Text("Done")
+                        .font(.title3)
                 }
                 .disabled(editings[0].editedImage == nil || editings[1].editedImage == nil || editings[2].editedImage == nil)
             }

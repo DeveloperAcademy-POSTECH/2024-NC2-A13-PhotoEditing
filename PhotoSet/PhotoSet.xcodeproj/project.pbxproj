@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721037A92C81A5BA007491AC /* TitleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721037A82C81A5BA007491AC /* TitleEditView.swift */; };
 		72B557DD2C21CB7B00AB2281 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B557DC2C21CB7B00AB2281 /* MainView.swift */; };
 		72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3E27F2C215C77004300E4 /* CollectionModel.swift */; };
 		72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */; };
@@ -14,7 +15,7 @@
 		EE75B0032C2158D30002B72C /* Sintony-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE75B0012C2158D30002B72C /* Sintony-Bold.ttf */; };
 		EE75B0042C2158D30002B72C /* Sintony-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */; };
 		EE75B00D2C215C1F0002B72C /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75B00C2C215C1F0002B72C /* CreateView.swift */; };
-		EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */; };
+		EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */; };
 		EEB6D7002C1FD31500553392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB6D6FF2C1FD31500553392 /* Assets.xcassets */; };
 		EEB6D7032C1FD31500553392 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB6D7022C1FD31500553392 /* Preview Assets.xcassets */; };
 		EECD204E2C216D8900F8B735 /* PhotoFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD204D2C216D8900F8B735 /* PhotoFrameView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		721037A82C81A5BA007491AC /* TitleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditView.swift; sourceTree = "<group>"; };
 		72B557DC2C21CB7B00AB2281 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		72C3E27F2C215C77004300E4 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		72C3E2812C216C41004300E4 /* PhotoEditingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingModel.swift; sourceTree = "<group>"; };
@@ -31,8 +33,8 @@
 		EE75B0012C2158D30002B72C /* Sintony-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Bold.ttf"; sourceTree = "<group>"; };
 		EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Regular.ttf"; sourceTree = "<group>"; };
 		EE75B00C2C215C1F0002B72C /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
-		EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoKitsm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKitsmApp.swift; sourceTree = "<group>"; };
+		EEB6D6F82C1FD31400553392 /* PhotoSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSetApp.swift; sourceTree = "<group>"; };
 		EEB6D6FF2C1FD31500553392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEB6D7022C1FD31500553392 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EECD204D2C216D8900F8B735 /* PhotoFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFrameView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				EECD20532C21728E00F8B735 /* EditView.swift */,
 				72D28F8B2C2408FC00C21354 /* CropView.swift */,
 				EECD20552C21778200F8B735 /* CompleteView.swift */,
+				721037A82C81A5BA007491AC /* TitleEditView.swift */,
 				EECD20572C21796100F8B735 /* PhotoView.swift */,
 			);
 			path = View;
@@ -87,7 +90,7 @@
 		EEB6D6EF2C1FD31400553392 = {
 			isa = PBXGroup;
 			children = (
-				EEB6D6FA2C1FD31400553392 /* PhotoKitsm */,
+				EEB6D6FA2C1FD31400553392 /* PhotoSet */,
 				EEB6D6F92C1FD31400553392 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,22 +98,22 @@
 		EEB6D6F92C1FD31400553392 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */,
+				EEB6D6F82C1FD31400553392 /* PhotoSet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EEB6D6FA2C1FD31400553392 /* PhotoKitsm */ = {
+		EEB6D6FA2C1FD31400553392 /* PhotoSet */ = {
 			isa = PBXGroup;
 			children = (
-				EEB6D6FB2C1FD31400553392 /* PhotoKitsmApp.swift */,
+				EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */,
 				72C3E2832C216CE1004300E4 /* Model */,
 				EE75B00B2C215BF90002B72C /* View */,
 				EEB6D6FF2C1FD31500553392 /* Assets.xcassets */,
 				EE75B0052C2158DA0002B72C /* Font */,
 				EEB6D7012C1FD31500553392 /* Preview Content */,
 			);
-			path = PhotoKitsm;
+			path = PhotoSet;
 			sourceTree = "<group>";
 		};
 		EEB6D7012C1FD31500553392 /* Preview Content */ = {
@@ -124,9 +127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EEB6D6F72C1FD31400553392 /* PhotoKitsm */ = {
+		EEB6D6F72C1FD31400553392 /* PhotoSet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoKitsm" */;
+			buildConfigurationList = EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoSet" */;
 			buildPhases = (
 				EEB6D6F42C1FD31400553392 /* Sources */,
 				EEB6D6F52C1FD31400553392 /* Frameworks */,
@@ -136,9 +139,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoKitsm;
+			name = PhotoSet;
 			productName = PhotoKitsm;
-			productReference = EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */;
+			productReference = EEB6D6F82C1FD31400553392 /* PhotoSet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +159,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoKitsm" */;
+			buildConfigurationList = EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoSet" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -169,7 +172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EEB6D6F72C1FD31400553392 /* PhotoKitsm */,
+				EEB6D6F72C1FD31400553392 /* PhotoSet */,
 			);
 		};
 /* End PBXProject section */
@@ -194,13 +197,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C3E2822C216C41004300E4 /* PhotoEditingModel.swift in Sources */,
+				721037A92C81A5BA007491AC /* TitleEditView.swift in Sources */,
 				72D28F8C2C2408FC00C21354 /* CropView.swift in Sources */,
-				EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */,
+				EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */,
 				72C3E2802C215C77004300E4 /* CollectionModel.swift in Sources */,
 				EECD20562C21778200F8B735 /* CompleteView.swift in Sources */,
 				EE75B00D2C215C1F0002B72C /* CreateView.swift in Sources */,
 				EECD20542C21728E00F8B735 /* EditView.swift in Sources */,
-				EEB6D6FC2C1FD31400553392 /* PhotoKitsmApp.swift in Sources */,
+				EEB6D6FC2C1FD31400553392 /* PhotoSetApp.swift in Sources */,
 				72B557DD2C21CB7B00AB2281 /* MainView.swift in Sources */,
 				EECD204E2C216D8900F8B735 /* PhotoFrameView.swift in Sources */,
 				EECD20582C21796100F8B735 /* PhotoView.swift in Sources */,
@@ -336,12 +340,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PhotoKitsm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoSet/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FD4JN9V32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PhotoKitsm/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "photo library permission";
+				INFOPLIST_FILE = PhotoSet/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -353,7 +357,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.norangtest.PhotoKitsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morang.PhotoSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -368,12 +372,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PhotoKitsm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoSet/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FD4JN9V32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PhotoKitsm/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "photo library permission";
+				INFOPLIST_FILE = PhotoSet/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,7 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.norangtest.PhotoKitsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morang.PhotoSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -396,7 +400,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoKitsm" */ = {
+		EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EEB6D7042C1FD31500553392 /* Debug */,
@@ -405,7 +409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoKitsm" */ = {
+		EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EEB6D7072C1FD31500553392 /* Debug */,

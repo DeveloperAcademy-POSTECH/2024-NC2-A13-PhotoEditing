@@ -65,16 +65,12 @@ struct PhotoFrameView: View {
                         Text(photoDate)
                             .font(.custom("Sintony", size: 15))
                             .foregroundColor(.white)
-                        Text("PhotoKitsm")
+                        Text("PhotoSet")
                             .padding(.bottom, 10)
                             .font(.custom("Sintony-Bold", size: 21))
                         .foregroundColor(.white)
                     }
                     Spacer()
-                    Image("QRcode")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
                 }
                 .frame(width: 319, height: 65)
             }

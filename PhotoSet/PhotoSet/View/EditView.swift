@@ -50,8 +50,7 @@ struct EditView: View {
                         showEditView = false
                     }) {
                         Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: 20, height: 20)
+                            .font(.subheadline)
                     }
                 }
                 
@@ -65,7 +64,7 @@ struct EditView: View {
                         showEditView = false
                     }) {
                         Text("Done")
-                            .font(.system(size: 20))
+                            .font(.title3)
                     }
                 }
             }

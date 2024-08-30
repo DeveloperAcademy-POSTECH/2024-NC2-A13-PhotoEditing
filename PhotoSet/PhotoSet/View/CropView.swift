@@ -33,8 +33,7 @@ struct CropView: View {
                                 showEditView = false
                             }) {
                                 Image(systemName: "xmark")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
+                                    .font(.subheadline)
                             }
                         }
                         
@@ -48,7 +47,7 @@ struct CropView: View {
                                 showEditView = false
                             }) {
                                 Text("Done")
-                                    .font(.system(size: 20))
+                                    .font(.title3)
                             }
                         }
                     }
