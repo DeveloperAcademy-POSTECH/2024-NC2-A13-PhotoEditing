@@ -48,6 +48,7 @@ struct CreateView: View {
                     showCompleteView.toggle()
                 } label: {
                     Text("Done")
+                        .font(.title3)
                 }
                 .disabled(editings[0].editedImage == nil || editings[1].editedImage == nil || editings[2].editedImage == nil)
             }

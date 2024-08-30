@@ -33,7 +33,7 @@
 		EE75B0012C2158D30002B72C /* Sintony-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Bold.ttf"; sourceTree = "<group>"; };
 		EE75B0022C2158D30002B72C /* Sintony-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sintony-Regular.ttf"; sourceTree = "<group>"; };
 		EE75B00C2C215C1F0002B72C /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
-		EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoKitsm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEB6D6F82C1FD31400553392 /* PhotoSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSetApp.swift; sourceTree = "<group>"; };
 		EEB6D6FF2C1FD31500553392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEB6D7022C1FD31500553392 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		EEB6D6EF2C1FD31400553392 = {
 			isa = PBXGroup;
 			children = (
-				EEB6D6FA2C1FD31400553392 /* PhotoKitsm */,
+				EEB6D6FA2C1FD31400553392 /* PhotoSet */,
 				EEB6D6F92C1FD31400553392 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,12 +98,12 @@
 		EEB6D6F92C1FD31400553392 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */,
+				EEB6D6F82C1FD31400553392 /* PhotoSet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EEB6D6FA2C1FD31400553392 /* PhotoKitsm */ = {
+		EEB6D6FA2C1FD31400553392 /* PhotoSet */ = {
 			isa = PBXGroup;
 			children = (
 				EEB6D6FB2C1FD31400553392 /* PhotoSetApp.swift */,
@@ -113,7 +113,7 @@
 				EE75B0052C2158DA0002B72C /* Font */,
 				EEB6D7012C1FD31500553392 /* Preview Content */,
 			);
-			path = PhotoKitsm;
+			path = PhotoSet;
 			sourceTree = "<group>";
 		};
 		EEB6D7012C1FD31500553392 /* Preview Content */ = {
@@ -127,9 +127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EEB6D6F72C1FD31400553392 /* PhotoKitsm */ = {
+		EEB6D6F72C1FD31400553392 /* PhotoSet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoKitsm" */;
+			buildConfigurationList = EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoSet" */;
 			buildPhases = (
 				EEB6D6F42C1FD31400553392 /* Sources */,
 				EEB6D6F52C1FD31400553392 /* Frameworks */,
@@ -139,9 +139,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoKitsm;
+			name = PhotoSet;
 			productName = PhotoKitsm;
-			productReference = EEB6D6F82C1FD31400553392 /* PhotoKitsm.app */;
+			productReference = EEB6D6F82C1FD31400553392 /* PhotoSet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,7 +159,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoKitsm" */;
+			buildConfigurationList = EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoSet" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -172,7 +172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EEB6D6F72C1FD31400553392 /* PhotoKitsm */,
+				EEB6D6F72C1FD31400553392 /* PhotoSet */,
 			);
 		};
 /* End PBXProject section */
@@ -340,12 +340,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PhotoKitsm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoSet/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FD4JN9V32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PhotoKitsm/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "photo library permission";
+				INFOPLIST_FILE = PhotoSet/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -357,7 +357,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.norangtest.PhotoKitsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morang.PhotoSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -372,12 +372,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PhotoKitsm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoSet/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FD4JN9V32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PhotoKitsm/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "photo library permission";
+				INFOPLIST_FILE = PhotoSet/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -389,7 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.norangtest.PhotoKitsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morang.PhotoSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -400,7 +400,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoKitsm" */ = {
+		EEB6D6F32C1FD31400553392 /* Build configuration list for PBXProject "PhotoSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EEB6D7042C1FD31500553392 /* Debug */,
@@ -409,7 +409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoKitsm" */ = {
+		EEB6D7062C1FD31500553392 /* Build configuration list for PBXNativeTarget "PhotoSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EEB6D7072C1FD31500553392 /* Debug */,

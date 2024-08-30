@@ -63,7 +63,7 @@ struct TitleEditView: View {
                     Text("save")
                         .font(.title3)
                 }
-                .disabled(selectedPhoto.title.isEmpty)
+                .disabled(renameTitle.isEmpty)
             }
         }
     }
