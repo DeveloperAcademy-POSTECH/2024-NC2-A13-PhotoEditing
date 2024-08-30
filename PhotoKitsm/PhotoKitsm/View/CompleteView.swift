@@ -12,6 +12,7 @@ struct CompleteView: View {
     @State var photoTitle: String = ""
     @Binding var showCompleteView: Bool
     @Binding var completedImage: UIImage?
+    @FocusState private var isFocused: Bool
     
     var photoDate: String {
         let formatter = DateFormatter()
@@ -65,7 +66,11 @@ struct CompleteView: View {
                 text: $photoTitle
             )
             .frame(width: 200)
+            .focused($isFocused)
             Spacer()
+        }
+        .onAppear {
+            isFocused = true
         }
     }
 }
