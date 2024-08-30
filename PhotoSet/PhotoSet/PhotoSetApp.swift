@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct PhotoKitsmApp: App {
+struct PhotoSetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(CollectionModel())
         }
     }
 }
